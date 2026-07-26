@@ -1,0 +1,267 @@
+:root{
+    --Red: hsl(4, 100%, 67%);
+
+    --Blue-800: hsl(234, 29%, 20%);
+    --Blue-700: hsl(235, 18%, 26%);
+    --Grey: hsl(0, 0%,58%);
+    --White: hsl(0, 0%, 100%);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "roboto", sans-serif;
+}
+@media screen and (max-width:768px ) {
+    body{
+        background:white;
+        display: flex;
+        flex-direction: column;
+    }
+    .mobile{
+        display: flex;
+    }
+    .desc{
+        padding: 0;
+        gap: none;
+    }
+    .container{
+        margin: 2em 2em;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+    .title{
+        display: flex;
+        color: var(--Blue-800);
+        margin-bottom: 1em;
+        font-size: 2.5em;
+    }
+    p{
+        color: var(--Blue-800);
+        font-size: 1em;
+        margin-bottom: 2em;
+
+    }
+    li{
+        display: flex;
+        flex-direction: row;
+        list-style-type: none;
+        font-size: 1em;
+        margin-bottom: 2em;
+    }
+    .dot{
+        display: flex;
+        height: 1em;
+        margin-right: 0.5em;
+    }
+    label{
+        margin-top: 2em;
+        font-size:clamp(0.7em, 1vh, 1em) ;
+        color: var(--Blue-800);
+        font-weight: 700;
+    }
+    input{
+        padding: 1em;
+        border-radius: 0.5em;
+        border: solid 1px var(--Grey);
+        width: 100%;
+        margin-top: 0.5em;
+    }
+    button{
+        padding: 1em;
+        color: var(--White);
+        font-weight: 700;
+        background-color: var(--Blue-800);
+        margin-top: 1.5em;
+        border: none;
+        border-radius: 0.5em;
+        width: 100%;
+        transition: 0.3s;
+    }
+    button:focus{
+        background: var(--Grey);
+    }
+
+   .pcDesign{
+    display: none;
+   }
+      .formHeader{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+/* Invalid state */
+    #email.invalid {
+        border-color: var(--Red);
+        background-color: hsl(3, 100%, 94%);
+        color: var(--Red);
+    }
+
+/* Hide error by default */
+    #error-msg {
+        display: none;
+        color: var(--Red);
+        font-size: 0.7em;
+    }
+
+/* Show error */
+    #error-msg.show {
+        display: inline-flex;
+    }
+
+    .approved {
+
+  display: none;
+  background-color: var(--White);
+  width: 100%;
+  height: 400px;
+  padding: 1em;
+  border-radius: 2em;
+}
+.success-icon{
+    height: 3em;
+    margin-bottom: 1em;
+}
+.confirmTitle{
+    margin-bottom: 1em;
+}
+.confirmEmail{
+    margin-bottom: 2em;
+}
+
+.approved.show {
+  display: block;
+}
+}
+@media screen and (min-width:769px) {
+    .mobile{
+        display: none;
+    }
+    .approved{
+        display: none;
+    }
+    body{
+        display: flex;
+        flex-direction: column;
+        background-color: var(--Blue-700);
+    }
+    .container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    .card{
+        background-color: var(--White);
+        display: flex;
+        flex-direction: row;
+        height: 32em;
+        justify-content: center;
+        align-items: center;
+        max-width: 750px;
+        padding: 2em;
+        border-radius: 2em;
+    }
+    .desc{
+        margin-right: 2em;
+        margin-left: 2em;
+    }
+    .title{
+        font-size: 3em;
+        color: var(--Blue-800);
+        margin-bottom: 0.5em;
+    }
+    p{
+        color: var(--Blue-800);
+        margin-bottom: 0.5em;
+    }
+    li{
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 0.875em;
+        list-style-type: none;
+        color: var(--Blue-800);
+    }
+    .dot{
+        height: 1em;
+        margin-right: 0.5em;
+    }
+    input{
+        width: 100%;
+        padding: 1em;
+        border: solid 1px var(--Grey);
+        border-radius: 0.5em;
+        margin-bottom: 1em;
+    }
+    label{
+        font-size: 0.7em;
+        color: var(--Blue-800);
+        font-weight: 700;
+    }
+    button{
+        color: var(--White);
+        background-color: var(--Blue-800);
+        border-radius: 0.5em;
+        border: none;
+        padding: 1em;
+        width: 100%;
+        font-weight: 700;
+        transition: 0.3s;
+    }
+    button:hover{
+        background: var(--Grey);
+        cursor: pointer;
+    }
+    .pcDesign{
+        max-height: 28em;
+    }
+    .formHeader{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+/* Invalid state */
+    #email.invalid {
+        border-color: var(--Red);
+        background-color: hsl(3, 100%, 94%);
+        color: var(--Red);
+    }
+
+/* Hide error by default */
+    #error-msg {
+        display: none;
+        color: var(--Red);
+        font-size: 0.7em;
+    }
+
+/* Show error */
+    #error-msg.show {
+        display: inline-flex;
+    }
+
+    .approved {
+  display: none;
+  background-color: var(--White);
+  width: 400px;
+  height: 400px;
+  padding: 2em;
+  border-radius: 2em;
+}
+.success-icon{
+    height: 3em;
+    margin-bottom: 1em;
+}
+.confirmTitle{
+    margin-bottom: 1em;
+}
+.confirmEmail{
+    margin-bottom: 2em;
+}
+
+.approved.show {
+  display: block;
+}
+}
