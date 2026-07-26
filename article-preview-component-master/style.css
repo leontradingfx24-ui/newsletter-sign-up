@@ -1,0 +1,207 @@
+:root{
+--Very-Dark-Grayish-Blue: hsl(217, 19%, 35%);
+--Desaturated-Dark-Blue: hsl(214, 17%, 51%);
+--Grayish-Blue: hsl(212, 23%, 69%);
+--Light-Grayish-Blue: hsl(210, 46%, 95%);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--Light-Grayish-Blue);
+   font-family: "Manrope", sans-serif;
+}
+.container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center; 
+    height: 100vh;
+}
+.image{
+    height:  20em;
+    width: 20em;
+    border-radius: 1em 0 0 1em;
+    object-fit: cover;
+}
+.desc{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    height: 20em;
+    max-width: 30em;
+    background-color: white;
+    border-radius: 0 1em 1em 0;
+    padding: 2em;
+    position: relative;
+}
+
+h1{
+    font-size: 1.25em;
+    color: var(--Very-Dark-Grayish-Blue);
+}
+
+p{
+    font-size: 0.875em;
+    color: var(--Desaturated-Dark-Blue);
+}
+.profile{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-right: 4.5em;
+}
+.avatar{
+    height: 3em;
+    border-radius: 50%;
+}
+.info{
+    margin-left: 1em;
+    display: flex;
+    flex-direction: column;
+}
+.name{
+    font-size: 0.875em;
+    font-weight: 700;
+    color: var(--Very-Dark-Grayish-Blue);
+}
+
+.date{
+    display: block;
+     font-size: 0.875em;
+    color: var(--Desaturated-Dark-Blue);
+}
+.shareWrapper{
+    position: absolute;
+    right: 2em;
+    bottom: 2em;
+}
+button{
+    height: 3em;
+    width: 3em;
+    border: none;
+    border-radius: 50%;
+    background-color: var(--Light-Grayish-Blue);
+    color: var(--Desaturated-Dark-Blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+button:hover{
+    background-color: var(--Desaturated-Dark-Blue);
+    color: var(--Light-Grayish-Blue);
+}
+button.active{
+    background-color: var(--Very-Dark-Grayish-Blue);
+    color: white;
+}
+
+.sharePopup{
+    position: absolute;
+    bottom: calc(100% + 1.2em);
+    right: -1.5em;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    background-color: var(--Very-Dark-Grayish-Blue);
+    padding: 1em 1.5em;
+    border-radius: 0.6em;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(0.5em);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+}
+
+.sharePopup::after{
+    content: "";
+    position: absolute;
+    top: 100%;
+    right: 1.75em;
+    border: 0.6em solid transparent;
+    border-top-color: var(--Very-Dark-Grayish-Blue);
+}
+.sharePopup.active{
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+.shareText{
+    color: var(--Grayish-Blue);
+    letter-spacing: 0.3em;
+    font-size: 0.8125em;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+.sharePopup a{
+    display: flex;
+}
+
+/*  Mobile layout  */
+@media (max-width: 40em){
+    body{
+        min-height: 100vh;
+    }
+    .container{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: auto;
+        min-height: 100vh;
+        padding: 1.5em;
+    }
+    .image{
+        width: 100%;
+        max-width: 23.4375em;
+        height: 12.5em;
+        border-radius: 0.6em 0.6em 0 0;
+    }
+    .desc{
+        width: 100%;
+        max-width: 23.4375em;
+        height: auto;
+        border-radius: 0 0 0.6em 0.6em;
+        overflow: hidden; 
+    }
+
+    
+    .shareWrapper{
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 4.6em;
+    }
+
+    
+    .share{
+        position: absolute;
+        right: 1.5em;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 2;
+    }
+
+    .sharePopup{
+        position: static; 
+        width: 100%;
+        height: 100%;
+        justify-content: flex-start;
+        padding: 0 5.5em 0 1.5em;
+        border-radius: 0 0 0.6em 0.6em;
+        transform: translateY(0.5em);
+    }
+    .sharePopup.active{
+        transform: translateY(0);
+    }
+    .sharePopup::after{
+        content: none; 
+    }
+}
